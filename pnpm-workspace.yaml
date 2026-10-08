@@ -1,0 +1,12 @@
+# pnpm 设置（pnpm 10+ 起 settings 的正式归属地；package.json 里的 "pnpm" 字段已不再读取）
+packages:
+  - '.'
+
+# 依赖构建脚本放行白名单（pnpm 11 用 allowBuilds 取代旧的 onlyBuiltDependencies）：
+#   esbuild          —— 二进制自检
+#   msw              —— 无实际构建（postinstall 仅打印提示）
+#   @parcel/watcher  —— 原生文件监听模块（有预编译二进制，无脚本时也能用）
+allowBuilds:
+  esbuild: true
+  msw: true
+  '@parcel/watcher': true

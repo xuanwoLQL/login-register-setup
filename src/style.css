@@ -1,0 +1,59 @@
+/*
+ * 全局基础样式（沿用 toDoListSetup 脚手架）
+ *
+ * 说明：本文件原本是 Vite 官方模板自带的 style.css，内含一整套深色主题。
+ * 那套深色主题会和白底卡片打架：系统开启深色模式时，:root 把文字颜色设成近白色，
+ * 页面背景又是浅色，结果就是白底白字 —— 文字完全看不见。
+ *
+ * 因此这里只保留本项目真正用到的基础样式，并显式声明为浅色配色。
+ * 布局类样式（卡片 / 按钮 / 标签）在 App.vue 的非 scoped 样式块里，
+ * SCSS 变量在 assets/css/main.scss 里。
+ */
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, 'Microsoft YaHei', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  /* 本项目是浅色界面，显式声明为 light。
+     若沿用模板的 `light dark`，系统深色模式下浏览器会把输入框、复选框、
+     滚动条等控件渲染成深色，和本页的白色卡片不搭。 */
+  color-scheme: light;
+  color: #213547;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 注意：与 studentRegisterSetup 脚手架的差异 ——
+   本项目登录/注册页是 AuthLayout 全屏左右分栏（左品牌区 + 右表单卡），
+   所以 body 不做 flex 居中（100vh 子元素会被裁掉），
+   #app 也不设 max-width / padding（否则左侧渐变背景到不了屏幕边缘）。 */
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+#app {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+p,
+ul {
+  margin: 0;
+}

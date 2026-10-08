@@ -1,0 +1,22 @@
+/* Element Plus 主题色定制（低成本美观，不引入 SCSS 变量覆盖那套构建配置）
+ *
+ * 注意：
+ * 1. 这里不放在 main.scss —— main.scss 会被 vite 的 additionalData 注入到每一个
+ *    SCSS 块里，把 :root 规则放进去会让同一条规则在产物里重复几十遍。
+ * 2. 选择器用 html:root 而不是 :root —— CSS 自定义属性的覆盖规则是
+ *    "同优先级下后出现的赢"，而我们的样式和 Element Plus 的样式谁先谁后
+ *    取决于打包时的 CSS 顺序。html:root 多一个元素选择器、优先级更高，
+ *    无论加载顺序如何都能稳定覆盖。
+ * 3. 只覆盖 --el-color-primary 不够：hover / disabled / 浅色背景用的是
+ *    light-3 ~ light-9 这一串派生色，不一起覆盖会出现"按钮 hover 时颜色突变"。
+ */
+html:root {
+  --el-color-primary: #4f46e5;
+  --el-color-primary-light-3: #7b74ec;
+  --el-color-primary-light-5: #a5a0f2;
+  --el-color-primary-light-7: #ceccf8;
+  --el-color-primary-light-8: #e0dffb;
+  --el-color-primary-light-9: #f0effd;
+  --el-color-primary-dark-2: #3f38b7;
+  --el-border-radius-base: 8px;
+}

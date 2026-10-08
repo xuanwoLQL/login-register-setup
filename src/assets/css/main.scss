@@ -1,0 +1,29 @@
+// ==========================================================================
+// 全局 SCSS 变量（沿用 toDoListSetup 脚手架的约定）
+// --------------------------------------------------------------------------
+// vite.config.ts 里配置了：
+//     css.preprocessorOptions.scss.additionalData = '@use "@/assets/css/main.scss" as *;'
+// 也就是说，这个文件会被自动注入到每一个 <style lang="scss"> 的顶部，
+// 所以组件里可以直接用 $brand / $text 这些变量，不用再写 @use / @import。
+//
+// ⚠️ 正因为会被注入到每个 SCSS 编译单元，这里**只能放变量和 mixin**：
+//     写选择器会被复制进每个组件，产生大量重复 CSS。
+//     全局的普通样式写在 src/style.css，或 App.vue 的非 scoped 样式块里。
+// ==========================================================================
+
+// 主色 / 语义色
+$brand: #3b6ef0;
+$brand-dark: #2b55c8;
+$danger: #e5484d;
+$warn: #d97706;
+
+// 文本 / 背景 / 边框
+$text: #1f2430;
+$text-muted: #6b7280;
+$border: #e3e6ee;
+$bg-page: #f5f6fa;
+$bg-card: #ffffff;
+
+// 圆角
+$radius: 10px;
+$radius-sm: 6px;
